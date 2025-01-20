@@ -11,13 +11,13 @@ class LoginPage extends StatelessWidget {
   }
 
   void irProfile(BuildContext context) {
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       AppUser myProfile = AppUser(
         id: 1,
-        name: "Juan",
-        lastName: "Pérez Rodrigo",
-        email: "juan.perez@example.com",
-        phoneNumber: "+51 987654321",
+        name: "Charles Richar",
+        lastName: "Revolo Hinostroza",
+        email: "i2317251@continental.edu.pe",
+        phoneNumber: "+51 946 858 888",
         image: "assets/images/perfil2.png",
       );
 
@@ -117,8 +117,5 @@ class LoginPage extends StatelessWidget {
         )),
       ),
     );
-    //void irRegister(BuildContext context) {
-    //  Navigator.of(context).pushNamed("register");
-    //}
   }
 }

@@ -14,10 +14,10 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  // Inicializamos con la categoría 1
+  // Inicializar con la categoría 1
   String selectedCategory = 'Camisas';
 
-  // Función para cambiar la categoría
+  // Para cambiar la categoría
   void _onCategorySelected(String category) {
     setState(() {
       selectedCategory = category;
@@ -48,51 +48,74 @@ class _ProductPageState extends State<ProductPage> {
                 ),
               ),
               const SizedBox(height: 10),
-              // Contenedor con botones de categorías y grid
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.ligthBg,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          HoverTextButton(
-                            text: 'Camisas',
-                            onPressed: () => _onCategorySelected('Camisas'),
-                          ),
-                          const SizedBox(width: 40),
-                          HoverTextButton(
-                            text: 'Zapatillas',
-                            onPressed: () => _onCategorySelected('Zapatillas'),
-                          ),
-                          const SizedBox(width: 40),
-                          HoverTextButton(
-                            text: 'Gorras',
-                            onPressed: () => _onCategorySelected('Gorras'),
-                          ),
-                          const SizedBox(width: 40),
-                          HoverTextButton(
-                            text: 'Lentes',
-                            onPressed: () => _onCategorySelected('Lentes'),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      // Grid de productos
-                      Expanded(
-                        child: ProductGrid(
-                          products: products,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.ligthBg,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                HoverTextButton(
+                                  text: 'Camisas',
+                                  onPressed: () =>
+                                      _onCategorySelected('Camisas'),
+                                ),
+                                const SizedBox(width: 40),
+                                HoverTextButton(
+                                  text: 'Zapatillas',
+                                  onPressed: () =>
+                                      _onCategorySelected('Zapatillas'),
+                                ),
+                                const SizedBox(width: 40),
+                                HoverTextButton(
+                                  text: 'Gorras',
+                                  onPressed: () =>
+                                      _onCategorySelected('Gorras'),
+                                ),
+                                const SizedBox(width: 40),
+                                HoverTextButton(
+                                  text: 'Lentes',
+                                  onPressed: () =>
+                                      _onCategorySelected('Lentes'),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 20),
+                            Expanded(
+                              child: ProductGrid(
+                                products: products,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const [
+                                Icon(Icons.shopping_cart,
+                                    color: Colors.blue, size: 36),
+                                Icon(Icons.search,
+                                    color: Colors.blue, size: 36),
+                                Icon(Icons.person,
+                                    color: Colors.blue, size: 36),
+                                Icon(Icons.account_balance_wallet,
+                                    color: Colors.blue, size: 36),
+                                Icon(Icons.settings,
+                                    color: Colors.blue, size: 36),
+                              ],
+                            )
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],

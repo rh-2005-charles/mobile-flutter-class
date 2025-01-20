@@ -32,20 +32,15 @@ class _HoverTextButtonState extends State<HoverTextButton> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                //color: Colors.black54,
                 color: isHovered ? Color(0xff89b5ca) : Colors.black54,
               ),
             ),
             AnimatedContainer(
-              duration:
-                  const Duration(milliseconds: 300), // Duración de la animación
-              height: 4, // Altura de la línea
-              width: isHovered
-                  ? 50
-                  : 0, // Ancho de la línea cuando el mouse está encima
+              duration: const Duration(milliseconds: 300),
+              height: 4,
+              width: isHovered ? 50 : 0,
               color: Color(0xff89b5ca),
-              margin: const EdgeInsets.only(
-                  top: 3), // Margen entre el texto y la línea
+              margin: const EdgeInsets.only(top: 3),
             ),
           ],
         ),

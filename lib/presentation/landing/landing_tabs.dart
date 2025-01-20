@@ -25,8 +25,7 @@ class _LandingTabsState extends State<LandingTabs>
         title: "Envío Gratis",
         body:
             "Obtén envío gratis en compras superiores a S/. 50. ¡No dejes pasar esta oportunidad!"),
-    ];
-
+  ];
 
   @override
   void initState() {
@@ -54,8 +53,6 @@ class _LandingTabsState extends State<LandingTabs>
           ),
           SizedBox(height: 50),
           Container(
-            // color: Colors.red,
-            //width: 100,
             child: TabBar(
               dividerHeight: 0,
               tabAlignment: TabAlignment.center,

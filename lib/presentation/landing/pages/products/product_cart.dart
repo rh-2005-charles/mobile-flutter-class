@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final String title;
   final String price;
   final String imageUrl;
@@ -13,64 +13,96 @@ class ProductCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _ProductCardState createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  bool isFavorite = false;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
+      width: 150,
+      height: 220,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blue,
         borderRadius: BorderRadius.circular(6),
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
         children: [
-          Stack(
-            alignment: Alignment.topRight,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: CircleAvatar(
-                  radius: 30,
-                  backgroundColor: Colors.grey[200],
-                  backgroundImage: AssetImage(imageUrl),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.grey[200],
+                    backgroundImage: AssetImage(widget.imageUrl),
+                  ),
                 ),
+                const SizedBox(height: 5),
+                Text(
+                  widget.title,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  widget.price,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(5, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: const Icon(
+                        Icons.star,
+                        size: 10,
+                        color: Colors.white,
+                      ),
+                    );
+                  }),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 8,
+            right: 8,
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  isFavorite = !isFavorite;
+                });
+              },
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_border,
+                color: isFavorite ? Colors.red : Colors.white,
               ),
-              IconButton(
-                onPressed: () {
-                  debugPrint('Favorito presionado');
-                },
-                icon: const Icon(Icons.favorite_border),
-                color: Colors.red,
-                iconSize: 20,
-              ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            price,
-            style: const TextStyle(fontSize: 12, color: Colors.blue),
-          ),
-          const SizedBox(height: 4),
-          Row(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: List.generate(5, (index) {
-             return const Icon(
-               Icons.star,
-               size: 10,
-               color: Colors.amber,
-             );
-            }),
+              iconSize: 20,
+            ),
           ),
         ],
       ),

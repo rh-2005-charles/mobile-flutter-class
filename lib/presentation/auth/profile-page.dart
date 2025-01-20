@@ -38,7 +38,7 @@ class ProfilePage extends StatelessWidget {
                     "Detalle del Usuario",
                     style: AppStyles.title,
                   ),
-                  SizedBox(height: 80), // Espacio para la imagen superpuesta
+                  SizedBox(height: 80),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     decoration: BoxDecoration(
@@ -47,7 +47,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        SizedBox(height: 80), // Espacio debajo de la imagen
+                        SizedBox(height: 80),
                         ListTile(
                           title: Text(
                             "Nombres",
@@ -96,7 +96,6 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20),
-                  // Botones fuera del contenedor
                   ElevatedButton(
                     onPressed: () => irProduct(context),
                     style: ElevatedButton.styleFrom(
